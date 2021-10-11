@@ -68,7 +68,8 @@ namespace LinqToEntityExampleCollection
 
         private void btnFirstOrDefault_Click(object sender, EventArgs e)
         {
-            /*FirstOrDefault()=> First ile aynı kullanım amacına sahiptir. Farklı oalrak FirstOrDefault içerisinde sağlanmayan bir şart verildiğinde Fİrst metodunda ki gibi hata vermeyecektir. Sadece veritabanında eşleşen bir kayıt bulunmadığından Category nesnesini null oalrak bırakacaktır*/
+            /*FirstOrDefault()=> First ile aynı kullanım amacına sahiptir. Farklı oalrak FirstOrDefault içerisinde sağlanmayan bir şart verildiğinde Fİrst metodunda 
+            ki gibi hata vermeyecektir. Sadece veritabanında eşleşen bir kayıt bulunmadığından Category nesnesini null oalrak bırakacaktır*/
             Category category = db.Categories.FirstOrDefault(x => x.CategoryID > 7);
             if (category == null)
             {
@@ -82,7 +83,9 @@ namespace LinqToEntityExampleCollection
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            /*Find()=> Microsft SQL Server üzerinde veritabanı işlmelerini incelerken Identity Key(ID) değerinden söz etmiştik HATIRLARSANIZ......Uniq olduğundan tek bir kayıt'a erişmek için ID kolunu kullanılmaktadır. Entity Framework kütpühanesini kullanarak veritabanında bulunna tablolarımzıda tek bir kolona erişmek için kullanılıyoruz*/
+            /*Find()=> Microsft SQL Server üzerinde veritabanı işlmelerini incelerken Identity Key(ID) değerinden söz etmiştik HATIRLARSANIZ.....
+            .Uniq olduğundan tek bir kayıt'a erişmek için ID kolunu kullanılmaktadır. Entity Framework kütpühanesini kullanarak veritabanında bulunna tablolarımzıda 
+            tek bir kolona erişmek için kullanılıyoruz*/
             Category GelenKategori = db.Categories.Find(1);
             MessageBox.Show(GelenKategori.CategoryName);
 
@@ -93,7 +96,8 @@ namespace LinqToEntityExampleCollection
 
         private void btnTake_Click(object sender, EventArgs e)
         {
-            /*Take()=> T-SQL sorgularında kullandığımız Top komutunun görevini üstlenmektedir. Bİr sorgu sonucunda dönen listeden en üstteki belirlediğimiz sayıda satırı ekranda göstermemizi sağlar*/
+            /*Take()=> T-SQL sorgularında kullandığımız Top komutunun görevini üstlenmektedir. Bİr sorgu sonucunda dönen listeden en üstteki belirlediğimiz sayıda satırı 
+            ekranda göstermemizi sağlar*/
 
             dataGridView1.DataSource = db.Products.OrderByDescending(x => x.UnitPrice).Take(5).ToList();
         }
@@ -124,7 +128,9 @@ namespace LinqToEntityExampleCollection
 
         private void btnAny_Click(object sender, EventArgs e)
         {
-            /*Any()=> İki farklı kulanıma sahip olan Any metodu ilk kullanımı olan bir tabloda kayıt olup olmadığını kontrol edebilir. İkinci kullanımı ise tabloda verilen şartlara uygun kayıt olup olmadığını kontrol etmektektedir. Any Metodu geriye sonuç olarak boolean veri tipinde döniş yapmkatadır.*/
+            /*Any()=> İki farklı kulanıma sahip olan Any metodu ilk kullanımı olan bir tabloda kayıt olup olmadığını kontrol edebilir. 
+            İkinci kullanımı ise tabloda verilen şartlara uygun kayıt olup olmadığını kontrol etmektektedir. Any Metodu geriye sonuç 
+            olarak boolean veri tipinde döniş yapmkatadır.*/
 
             /*Kategoriler tablosunda Becearges isimli bir kategori var mı yok mu*/
 
@@ -147,7 +153,8 @@ namespace LinqToEntityExampleCollection
 
         private void btnCount_Click(object sender, EventArgs e)
         {
-            /*Count()=> T-SQL'den de hatırlayacağınız gibi COunt() metodu sorgu sonucunda dönen result'un satırlarını saymakyadır. Count metodu geriye int değer tipinde dönüş yapar.*/
+            /*Count()=> T-SQL'den de hatırlayacağınız gibi COunt() metodu sorgu sonucunda dönen result'un satırlarını saymakyadır. Count metodu geriye int değer 
+            tipinde dönüş yapar.*/
 
             int UrunSayisi = db.Products.Count();
             MessageBox.Show(UrunSayisi.ToString());
@@ -219,7 +226,9 @@ namespace LinqToEntityExampleCollection
 
         private void btnJoin_Click(object sender, EventArgs e)
         {
-            /*T-SQL sorgualrı yazarken select sorgularımızda birden fazla tablodan veir çekmemiz gereken duurmlarla karşılaşabiliyorduk. Bu işlemler için uzun ve karışık join sorguları yazmamız gerekmektedir. Entity Framework kütüphanesi kullanırken bir verirnin başka bir tablo ile olan bağlantısı üzerinden (join yaaprak) veri çekmek oldukça kolay bir işlemdir.*/
+            /*T-SQL sorgualrı yazarken select sorgularımızda birden fazla tablodan veir çekmemiz gereken duurmlarla karşılaşabiliyorduk. 
+            Bu işlemler için uzun ve karışık join sorguları yazmamız gerekmektedir. Entity Framework kütüphanesi kullanırken bir verirnin 
+            başka bir tablo ile olan bağlantısı üzerinden (join yaaprak) veri çekmek oldukça kolay bir işlemdir.*/
 
             //Ürünlerin ürün adını, fiyatını, stok mikatrını, kategori adını ve tedarikçi adını getiren sorguyu yazınız
 
@@ -235,7 +244,8 @@ namespace LinqToEntityExampleCollection
 
         private void btnFunction_Click(object sender, EventArgs e)
         {
-            /*Function Kullanımı: Entity Framework kütüphanesi kullanırken T-SQL'de bulunna belli başlı fonksiyonları kullanmanız gereketiği durumlarda bu fonksiyonları kolayca kullanaiblirsiniz*/
+            /*Function Kullanımı: Entity Framework kütüphanesi kullanırken T-SQL'de bulunna belli başlı fonksiyonları kullanmanız gereketiği durumlarda bu 
+            fonksiyonları kolayca kullanaiblirsiniz*/
 
             //Çalışanların yaşlarını hesaplayın
 
