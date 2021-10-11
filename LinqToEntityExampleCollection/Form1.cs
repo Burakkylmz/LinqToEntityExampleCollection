@@ -249,3 +249,4 @@ namespace LinqToEntityExampleCollection
         }
     }
 }
+
